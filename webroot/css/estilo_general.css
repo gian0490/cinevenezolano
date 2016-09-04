@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    /*Reiniciar los margenes*/
+    padding: 0;
+    /*Reiniciar los margenes*/
+    -webkit-box-sizing: border-box;
+    /**/
+    -moz-box-sizing: border-box;
+    /**/
+    box-sizing: border-box;
+}
+
+.nada_marquesina{
+  top:none;
+}
+.top_marquesina {
+  margin-top: 70px;
+}
+/*Ajustes al Header*/
+
+header nav ul {
+  list-style: none;
+    overflow: hidden;
+}
+header nav ul li {
+    float: left;
+}
+
+/*Menu pegajoso*/
+
+
+
+.menu-fixed {
+    position: fixed;
+    /* Hacemos que la posición del header sea fija para que siempre se muestre en pantalla*/
+    z-index: 1000;
+    /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+    top: 0;
+
+    /*header q se pega de arriba*/
+    /*left: 0;*/
+    width: 100%;
+    /*Indicando que el header ocupa toda la pantalla*/
+    max-width: 1171px;
+    /*Tamaño del largo del header */
+
+}
+
+.menu-fixed div button span a{
+
+  box-shadow: 0px 4px 3px rgb(0, 0, .5);
+  -webkit-transition: all ease 10s;
+  -o-transition: all ease 10s;
+  transition: all ease 10s;
+
+}
+
+/*Edicion del Cuerpo de pagina*/
+
+body  {
+    background-image: url("../webroot/img/Strip5.jpg");
+    background-color: #000;
+    background-attachment: fixed; /*para que sea estático*/
+    background-position: top right; /*arriba a la derecha*/
+    background-repeat: no-repeat;   /*que no se repita el fondo*/
+    background-size: 100%;
+}
+/*Inicio footer*/
+
+.footer {
+background-color: #222;
+-webkit-border-radius: 20px;
+border-radius: 20px;
+}
+
+ul.footer-nav {
+    display: inline-block;
+    float: none !important;
+    text-align: center;
+    margin-top: 10px;
+}
+
+ul.footer-nav li:first-child {
+    margin-left: 0;
+}
+
+
+.alineacionFoot{
+    float: left;
+    margin-left: 15px;
+}
+
+ul.footer-nav li a {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 991px){
+.copyright-section {
+    text-align: center;
+}
+}
+
+.copyright-section {
+    padding: 15px 0;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255,255,255,.06);
+}
+
+/*Fin footer*/
+
+
+/*Estilos de la parte de las redes sociales*/
+
+.social {
+    position: fixed;
+    /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+    right: 0;
+    /* Establecemos la barra en la izquierda */
+    top: 300px;
+    /* Bajamos la barra 200px de arriba a abajo */
+    z-index: 999999999;
+    /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+.social ul {
+    list-style: none;
+}
+.social ul li a {
+    display: inline-block;
+    color: #fff;
+    background: #000;
+    padding: 10px 15px;
+    text-decoration: none;
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    /*Establecemos una transición a todas las propiedades */
+}
+.social ul li .icon-facebook {
+    background: #3b5998;
+}
+
+/* Establecemos los colores de cada red social, aprovechando su class */
+
+.social ul li .icon-twitter {
+    background: #00abf0;
+}
+.social ul li .icon-youtube {
+    background: #bb0000;
+}
+.social ul li .icon-instagram {
+    background: #125688;
+}
+.social ul li .icon-mail {
+    background: #666666;
+}
+.social ul li a:hover {
+    background: #000;
+    /* Cambiamos el fondo cuando el usuario pase el mouse */
+    padding: 20px 15px 15px 15px;
+    /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
+}
+
+.Margen {
+    /*padding: 0px 20px 20px 20px;*/
+    margin: 0px 20px 20px 20px;
+}
+
+
+/*Estilos de los modales*/
+.modal-content {
+  background-color:#222;
+}

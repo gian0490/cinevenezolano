@@ -26,14 +26,41 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
 
+    <?= $this->Html->css(array('fonts','bootstrap.min','estilo_carrucel','estilo_general','boostrap-submenu.min','boostrap-theme.min','boostrap-combobox'));?>
+    <?= $this->Html->script(array('jquery','Main','Carrusel','bootstrap.min','bootstrap-submenu','bootstrap-combobox') ); ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
+
+  <div class="social">
+   <ul>
+       <li>
+           <a href="https://www.facebook.com/CIC-UCAB-1626210684296485/timeline" target="_blank" class="icon-facebook"></a>
+       </li>
+       <li>
+           <a href="https://twitter.com/cic_ucab" target="_blank" class="icon-twitter"></a>
+       </li>
+       <li>
+           <a href="mailto:contacto@falconmasters.com" class="icon-youtube"></a>
+       </li>
+   </ul>
+</div>
+<div class="container">
+ 			<div class="row">
+
+ 		<?php //echo $this->element(array('header_usu','Marquesina_pc','Modales','Marquesina_cell')); ?>
+ 		<?php echo $this->element('header_usu'); ?>
+ 		<?php // echo $this->element('Marquesina_pc'); ?>
+ 		<?php //echo  $this->element('Modales'); ?>
+ 		<?php //echo $this->element('Marquesina_cell'); ?>
+
+ 			</div>
+ 			<!--  row primero -->
+ 	</div>
+
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
@@ -51,7 +78,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
-    </footer>
+    <div class="container">
+    <div class="row">
+<?php  echo $this->element('footer_usu'); ?>
+</div>
+</div>
 </body>
 </html>

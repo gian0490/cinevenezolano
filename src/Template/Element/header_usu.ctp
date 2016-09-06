@@ -3,7 +3,7 @@
     <!--Imagen Principal-->
     <div class="container">
         <div class="row">
-            <img src="webroot/img/Pag/SCRIPT(300).png" style="height:150;" class="img-responsive img-rounded">
+            <img src="webroot/img/Pag/SCRIPT(300).png" style="height:150" class="img-responsive img-rounded">
             <nav class="navbar navbar-inverse menu" role="navigation">
                 <!--Fin De Imagen Principal-->
 

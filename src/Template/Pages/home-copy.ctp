@@ -13,7 +13,8 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$this->layout = true;
+$cakeDescription = 'script';
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
 
 
-    <?= $this->Html->css(array('fonts','bootstrap.min','estilo_carrucel','estilo_general','bootstrap-submenu.min','bootstrap-theme.min','bootstrap-combobox','combobox'));?>
+    <?= $this->Html->css(array('fonts','bootstrap.min','estilo_carrucel','estilo_general','boostrap-submenu.min','boostrap-theme.min','boostrap-combobox'));?>
     <?= $this->Html->script(array('jquery','Main','Carrusel','bootstrap.min','bootstrap-submenu','bootstrap-combobox') ); ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -52,7 +53,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
  			<div class="row">
 
  		<?php //echo $this->element(array('header_usu','Marquesina_pc','Modales','Marquesina_cell')); ?>
- 		<?php  echo $this->element('header_usu'); ?>
+ 		<?php echo $this->element('header_usu'); ?>
  		<?php // echo $this->element('Marquesina_pc'); ?>
  		<?php //echo  $this->element('Modales'); ?>
  		<?php //echo $this->element('Marquesina_cell'); ?>
@@ -60,10 +61,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
  			</div>
  			<!--  row primero -->
  	</div>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
+
+
     <div class="container">
     <div class="row">
 <?php  echo $this->element('footer_usu'); ?>

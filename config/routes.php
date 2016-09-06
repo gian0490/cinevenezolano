@@ -42,6 +42,15 @@ use Cake\Routing\Router;
  */
 Router::defaultRouteClass('DashedRoute');
 
+// /app/config/routes.php
+Router::connect('/rss/:feed',
+	array('controller'=>'pages','action'=>'rss'),
+	array(
+		'feed'=>'[a-z]+',
+		'pass'=>array('feed')
+	)
+);
+
 Router::scope('/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
@@ -71,7 +80,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
-    $routes->fallbacks('DashedRoute');
+   $routes->fallbacks('DashedRoute');
 });
 
 /**

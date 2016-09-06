@@ -14,3 +14,4 @@
  */
 
 require 'webroot' . DIRECTORY_SEPARATOR . 'index.php';
+//require 'src' . DIRECTORY_SEPARATOR . 'Template' . DIRECTORY_SEPARATOR . 'Pages'. DIRECTORY_SEPARATOR . 'home.ctp';

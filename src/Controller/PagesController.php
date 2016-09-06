@@ -28,6 +28,14 @@ use Cake\View\Exception\MissingTemplateException;
 class PagesController extends AppController
 {
 
+    var $name = 'Pages';
+
+    var $uses = array();
+
+    var $components = array('RequestHandler');
+
+    var $cacheDuration = '+3 hours';
+
     /**
      * Displays a view
      *
@@ -62,4 +70,90 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+}
+
+
+// continuación de /app/controllers/pages_controller.php
+function beforeFilter()
+{
+	// Desactivamos debug para todo el controlador
+	Configure::write('debug',0);
+	// En caso de utilizar el componente Auth, damos permiso a las secciones necesarias
+	//$this->Auth->allowedActions = array('rss');
+	parent::beforeFilter();
+}
+
+
+ function _getFeeds($url)
+{
+	// Configuramos la conexión curl
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	// Ejecutamos la conexión
+	$feed = curl_exec($ch);
+	curl_close($ch);
+	// En caso de error detenemos ejecución
+	if(!$feed)  return false;
+	// Creamos objeto SimpleXmlElement
+	$xml = new SimpleXmlElement($feed);
+	// Leemos el hilo RSS y lo guardamos en la variable $out
+	foreach($xml->channel->item as $item){
+		$out[] = array(
+			'title' 		=> (string)$item->title,
+			'description' 	=> (string)$item->description,
+			'pubDate' 		=> strtotime($item->pubDate),
+			'link' 			=> (string)$item->link
+		);
+	}
+	// Devolvemos el hilo
+	return $out;
+  }
+
+
+function rss($name = null, $limit = 8, $cache = true)
+{
+	// Desactivamos auto render de las vistas
+	$this->autoRender = false;
+	$options = compact('limit','cache');
+	// Si la solicitud es Ajax
+	if($this->RequestHandler->isAjax()){
+		// Cargamos layout ajax.ctp
+		$this->layout = 'ajax';
+		// Url según nombre recibido por parámetro
+		switch($name){
+			case 'psico':
+				$url = 'http://psicoactividad.underave.net/feed';
+				break;
+			case 'zeta':
+				$url = 'http://planzeta.underave.net/feed';
+				break;
+			case 'raco':
+				$url = 'http://www.racotecnic.com/feed';
+				break;
+			case 'underave':
+			default:
+				$url = 'http://blog.underave.net/feed';
+		}
+		// Obtenemos los hilos
+		if((isset($options['cache']) && $options['cache'] == false) || ($feeds = Cache::read("$name.feed")) == false){
+			$feeds = $this->_getFeeds($url);
+			// Si el parámetro cache es true guardamos en caché
+			if($options['cache'] == true){
+				Cache::set(array('duration' => $this->cacheDuration));
+				Cache::write("$name.feed",$feeds);
+			}
+		}
+		// Limitamos los resultados
+		if(isset($options['limit']) && count($feeds) > $options['limit'])
+			$feeds = array_slice($feeds, 0, $options['limit']);
+		// Guardamos la variable $data
+	//	$this->set('data', $feeds);
+		// Cargamos fichero json.ctp
+    echo json_encode($feeds);
+		//$this->render('/src/Template/ajax/json');
+	}else $this->redirect('/');
 }

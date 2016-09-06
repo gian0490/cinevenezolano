@@ -15,9 +15,15 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 // for built-in server
+
+
+echo $_SERVER['PHP_SELF'];
+echo php_sapi_name();
+echo basename(__FILE__);
 if (php_sapi_name() === 'cli-server') {
     $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
 
+    echo $_SERVER['PHP_SELF'];
     $url = parse_url(urldecode($_SERVER['REQUEST_URI']));
     $file = __DIR__ . $url['path'];
     if (strpos($url['path'], '..') === false && strpos($url['path'], '.') !== false && is_file($file)) {

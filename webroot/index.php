@@ -17,9 +17,9 @@
 // for built-in server
 
 
-echo $_SERVER['PHP_SELF'];
-echo php_sapi_name();
-echo basename(__FILE__);
+//echo $_SERVER['PHP_SELF'];
+//echo php_sapi_name();
+//echo basename(__FILE__);
 if (php_sapi_name() === 'cli-server') {
     $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
 

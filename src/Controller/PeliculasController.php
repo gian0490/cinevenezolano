@@ -34,7 +34,7 @@ class PeliculasController extends AppController
     public function view($id = null)
     {
         $pelicula = $this->Peliculas->get($id, [
-            'contain' => ['Generos', 'Referencias', 'Tematicas', 'Trailers', 'Cricticas', 'FichasTecnicas', 'Financiamientos', 'Locaciones', 'Repartos']
+            'contain' => ['Generos', 'Referencias', 'Tematicas', 'Trailers', 'Criticas', 'FichasTecnicas', 'Financiamientos', 'Locaciones', 'Repartos']
         ]);
 
         $this->set('pelicula', $pelicula);

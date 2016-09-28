@@ -29,7 +29,7 @@ $cakeDescription = 'script';
 
 
     <?= $this->Html->css(array('fonts','bootstrap.min','estilo_carrucel','estilo_general','bootstrap-submenu.min','bootstrap-theme.min','bootstrap-combobox','combobox'));?>
-    <?= $this->Html->script(array('jquery','Main','Carrusel','bootstrap.min','bootstrap-submenu','bootstrap-combobox') ); ?>
+    <?= $this->Html->script(array('jquery','Main','Carrusel','bootstrap.min','bootstrap-submenu','bootstrap-combobox','combo') ); ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>

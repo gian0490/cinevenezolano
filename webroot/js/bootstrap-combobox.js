@@ -24,7 +24,7 @@
   * ================================ */
 
   var Combobox = function ( element, options ) {
-    this.options = $.extend({}, $.fn.combobox.defaults, options);
+    this.options = $.extend({}, $.fn.combobox, options);
     this.template = this.options.template || this.template
     this.$source = $(element);
     this.$container = this.setup();

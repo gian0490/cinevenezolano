@@ -48,7 +48,7 @@ class PeliculasTable extends Table
         $this->belongsTo('Trailers', [
             'foreignKey' => 'trailer_id'
         ]);
-        $this->hasMany('Cricticas', [
+        $this->hasMany('Criticas', [
             'foreignKey' => 'pelicula_id'
         ]);
         $this->hasMany('FichasTecnicas', [

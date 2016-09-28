@@ -8,7 +8,7 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\CricticasTable $Cricticas
  */
-class CricticasController extends AppController
+class CriticasController extends AppController
 {
 
     /**
@@ -23,8 +23,8 @@ class CricticasController extends AppController
         ];
         $cricticas = $this->paginate($this->Cricticas);
 
-        $this->set(compact('cricticas'));
-        $this->set('_serialize', ['cricticas']);
+        $this->set(compact('criticas'));
+        $this->set('_serialize', ['criticas']);
     }
 
     /**
@@ -36,12 +36,12 @@ class CricticasController extends AppController
      */
     public function view($id = null)
     {
-        $crictica = $this->Cricticas->get($id, [
+        $critica = $this->Cricticas->get($id, [
             'contain' => ['Peliculas', 'Referencias']
         ]);
 
-        $this->set('crictica', $crictica);
-        $this->set('_serialize', ['crictica']);
+        $this->set('critica', $critica);
+        $this->set('_serialize', ['critica']);
     }
 
     /**
@@ -51,10 +51,10 @@ class CricticasController extends AppController
      */
     public function add()
     {
-        $crictica = $this->Cricticas->newEntity();
+        $critica = $this->Criticas->newEntity();
         if ($this->request->is('post')) {
-            $crictica = $this->Cricticas->patchEntity($crictica, $this->request->data);
-            if ($this->Cricticas->save($crictica)) {
+            $critica = $this->Criticas->patchEntity($critica, $this->request->data);
+            if ($this->Cricticas->save($critica)) {
                 $this->Flash->success(__('The crictica has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -62,10 +62,10 @@ class CricticasController extends AppController
                 $this->Flash->error(__('The crictica could not be saved. Please, try again.'));
             }
         }
-        $peliculas = $this->Cricticas->Peliculas->find('list', ['limit' => 200]);
-        $referencias = $this->Cricticas->Referencias->find('list', ['limit' => 200]);
-        $this->set(compact('crictica', 'peliculas', 'referencias'));
-        $this->set('_serialize', ['crictica']);
+        $peliculas = $this->Criticas->Peliculas->find('list', ['limit' => 200]);
+        $referencias = $this->Criticas->Referencias->find('list', ['limit' => 200]);
+        $this->set(compact('critica', 'peliculas', 'referencias'));
+        $this->set('_serialize', ['critica']);
     }
 
     /**
@@ -77,12 +77,12 @@ class CricticasController extends AppController
      */
     public function edit($id = null)
     {
-        $crictica = $this->Cricticas->get($id, [
+        $critica = $this->Criticas->get($id, [
             'contain' => ['Referencias']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $crictica = $this->Cricticas->patchEntity($crictica, $this->request->data);
-            if ($this->Cricticas->save($crictica)) {
+            $critica = $this->Criticas->patchEntity($critica, $this->request->data);
+            if ($this->Criticas->save($critica)) {
                 $this->Flash->success(__('The crictica has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -90,10 +90,10 @@ class CricticasController extends AppController
                 $this->Flash->error(__('The crictica could not be saved. Please, try again.'));
             }
         }
-        $peliculas = $this->Cricticas->Peliculas->find('list', ['limit' => 200]);
-        $referencias = $this->Cricticas->Referencias->find('list', ['limit' => 200]);
-        $this->set(compact('crictica', 'peliculas', 'referencias'));
-        $this->set('_serialize', ['crictica']);
+        $peliculas = $this->Criticas->Peliculas->find('list', ['limit' => 200]);
+        $referencias = $this->Criticas->Referencias->find('list', ['limit' => 200]);
+        $this->set(compact('critica', 'peliculas', 'referencias'));
+        $this->set('_serialize', ['critica']);
     }
 
     /**
@@ -106,8 +106,8 @@ class CricticasController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $crictica = $this->Cricticas->get($id);
-        if ($this->Cricticas->delete($crictica)) {
+        $critica = $this->Criticas->get($id);
+        if ($this->Criticas->delete($critica)) {
             $this->Flash->success(__('The crictica has been deleted.'));
         } else {
             $this->Flash->error(__('The crictica could not be deleted. Please, try again.'));

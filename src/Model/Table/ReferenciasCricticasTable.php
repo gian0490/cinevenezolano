@@ -37,8 +37,8 @@ class ReferenciasCricticasTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
-        $this->belongsTo('Cricticas', [
-            'foreignKey' => 'crictica_id',
+        $this->belongsTo('Criticas', [
+            'foreignKey' => 'critica_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Referencias', [
@@ -75,7 +75,7 @@ class ReferenciasCricticasTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['crictica_id'], 'Cricticas'));
+        $rules->add($rules->existsIn(['critica_id'], 'Criticas'));
         $rules->add($rules->existsIn(['referencia_id'], 'Referencias'));
 
         return $rules;

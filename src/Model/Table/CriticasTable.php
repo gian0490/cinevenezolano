@@ -20,7 +20,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Crictica[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Crictica findOrCreate($search, callable $callback = null)
  */
-class CricticasTable extends Table
+class CriticasTable extends Table
 {
 
     /**
@@ -33,7 +33,7 @@ class CricticasTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('cricticas');
+        $this->table('criticas');
         $this->displayField('id');
         $this->primaryKey('id');
 
@@ -42,9 +42,9 @@ class CricticasTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->belongsToMany('Referencias', [
-            'foreignKey' => 'crictica_id',
+            'foreignKey' => 'critica_id',
             'targetForeignKey' => 'referencia_id',
-            'joinTable' => 'referencias_cricticas'
+            'joinTable' => 'referencias_criticas'
         ]);
     }
 

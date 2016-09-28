@@ -14,7 +14,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Pelicula $pelicula
  * @property \App\Model\Entity\Referencia[] $referencias
  */
-class Crictica extends Entity
+class Critica extends Entity
 {
 
     /**

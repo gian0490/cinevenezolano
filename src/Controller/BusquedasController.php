@@ -140,6 +140,8 @@ class BusquedasController extends AppController
             $this->loadModel('Generos');
             $this->loadModel('FichasTecnicas');
 
+
+
             switch($opcion)
             {
               case "pelicula":
@@ -276,6 +278,7 @@ class BusquedasController extends AppController
           }
           else {
             # code...
+
             $this->loadModel('Personas');
             $this->loadModel('Tematicas');
             $this->loadModel('Peliculas');
